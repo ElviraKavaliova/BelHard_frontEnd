@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>dz1_3</title>
+</head>
+<body>
+    <script>
+        let cancel_input = "Вход отменён";
+        let uspeh = "Добро пожаловать!";
+        let nameUser = prompt("Введите Ваш логин:");
+        if (nameUser == "Админ") {
+            let passUser = prompt("Введите Ваш пароль:");
+            if (passUser == "123321") {
+                alert(uspeh);    
+            } else {
+                alert("Пароль неверен"); 
+            }
+        } else if (nameUser == null){
+            alert(cancel_input);
+        } else {
+            alert("Пользователь не найден!")
+        }    
+    </script>
+</body>
+</html>
