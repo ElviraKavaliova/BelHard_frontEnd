@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>dz4</title>
+    <style>
+        div{
+            border: 6px double black ;
+            padding: 25px;
+
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center; 
+        }
+
+        .odd{
+            border: 10px solid darkblue ;
+        }
+
+        .even{
+            border: 10px solid darkgreen ;
+        }
+
+        img{
+            height: 200px;
+            margin: 15px;
+        }
+    </style>
+</head>
+<body>
+    <div id="d"></div>
+    <script>
+        let s = "";
+        for (let i = 1; i <= 11; i++) {
+            if (i % 2 == 0) {
+                s += `<img src=images/${i}.jpg class="even">`;
+            } else {
+                s += `<img src=images/${i}.jpg class="odd">`;  
+            }    
+        }
+        d.innerHTML = s;
+    </script>
+</body>
+</html>

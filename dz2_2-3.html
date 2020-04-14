@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>dz2_2-3</title>
+</head>
+<body>
+    <p id="even"></p>
+    <p id="odd"></p>
+    <script>
+        let s_even = "";
+        let s_odd = "";
+        for (i=2;i<=10;i += 2) s_even += i + " ";
+        for (i=11;i>=1;i -= 2) s_odd += i + " ";
+        even.innerHTML = `Четные числа от 2 да 10: ${s_even}`;
+        odd.innerHTML = `Нечетные числа от 11 да 1: ${s_odd}`;
+    </script>
+</body>
+</html>

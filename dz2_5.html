@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>dz2_5</title>
+    <style>
+        table {
+            text-align: center;
+            font-weight: bolder;
+            font-size: 25px;
+            border-radius: 10px;
+            border-collapse: separate;
+            border-spacing: 10px 5px;
+            border: 2px solid darkorange;
+            margin: auto;
+        }
+
+        td {
+            width: 200px;
+            padding: 5px;
+            background: khaki;
+            border: 2px solid white;
+        }
+
+        th {
+            padding: 55px;
+            border: 2px solid white;
+        }
+
+        p{
+            font-weight: bold;
+            font-size: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="tab1"></div>
+    <form >
+        <p>Количество колонок в таблице:<input type="text" id="col"></p>
+        <p>Количество строк в таблице:<input type="text" id="row"></p>
+        <input type="button" value="Создать таблицу" onclick="CreateTable(document.getElementById('col').value,document.getElementById('row').value,'Таблица создана нажатием на кнопку')">
+    </form>
+    <div id="tab2"></div>
+    <script>
+        let x = prompt("Введите количество колонок в таблицу:");
+        let y = prompt("Введите количество строк в таблицу:");
+
+        function CreateTable(x, y, title) {
+            s = `<table> <caption> ${title}`;
+
+            for (i = 1; i <= y; i++) {
+                s += "<tr>";
+                for (j = 1; j <= x; j++) {
+                    s += `<td>Ячейка${i}_${j}</td>`;
+                }
+                s += "</tr>";
+            }
+            s += "</caption></table>";
+
+            tab1.innerHTML = s;
+            //return s;
+        }
+        if (x!='' && y!='' && x!=null && y!=null){
+            CreateTable(x,y,"Таблица создана при открытии страницы");
+        }
+        
+    </script>
+</body>
+
+</html>
