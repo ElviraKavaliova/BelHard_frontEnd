@@ -1,0 +1,277 @@
+:root {
+    --myColor: #3725E4;
+    --myfont: Gotham Pro;
+}
+
+html {
+    box-sizing: border-box;
+}
+
+*, *::before, *::after {
+    box-sizing: inherit;
+}
+
+body {
+    font-family: var(--myfont);
+    font-style: normal;
+    background-image: url(/img/f.svg);
+    background-size: calc(100% - 80px) calc(100%-60px);
+    background-position: center 235px;
+    background-repeat: no-repeat;
+    
+}
+
+/* #mainCont, #burg, #logo, #tit, #burg1, #burg1 div, .about, .t1, .social, #bMenu, #bMenu div, section, section div,.news,.news div {
+    border: 1px solid var(--myColor);
+} */
+
+#mainCont {
+    width: 768px;
+    height: 1105px;
+    margin: 0 auto;
+    border: 1px solid var(--myColor);
+    
+}
+
+#burg {
+    width: 768px;
+    height: 62px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+#burg img {
+    margin-right: 35px;
+    cursor: pointer;
+}
+
+#logo {
+    width: 351px;
+    height: 153px;
+    position: relative;
+    top: -20px;
+    left: 20px;
+}
+
+#logo img:nth-child(1) {
+    position: relative;
+    top: -5px;
+}
+
+#logo img:nth-child(2) {
+    position: relative;
+    top: -2px;
+}
+
+#logo img:nth-child(3) {
+    position: relative;
+    top: 14px;
+}
+
+#tit {
+    width: 562px;
+    height: 153px;
+    margin-left: 32px;
+}
+
+#tit p {
+    margin: 0;
+    font-weight: 900;
+    font-size: 77px;
+    line-height: 74px;
+    text-transform: uppercase;
+}
+
+#tit span {
+    color: var(--myColor);
+}
+
+/* Меню */
+
+#burg1 {
+    width: 360px;
+    height: 1024px;
+    position: relative;
+    top: -1060px;
+    left: 390px;
+    display: none;
+    background: white;
+    animation: a1 .3s;
+    border: 1px solid var(--myColor);
+}
+
+#burg1>div:nth-child(1) {
+    display: flex;
+    justify-content: flex-end;
+    padding: 12px 13px 16px 0;
+}
+
+#burg1>div:nth-child(1) img {
+    cursor: pointer;
+}
+
+@keyframes a1 {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+#bMenu {
+    margin-left: 28px;
+    /* height: 300px; */
+}
+
+#bMenu div {
+    height: 44px;
+    margin-bottom: 40px;
+    display: flex;
+    align-items: center;
+}
+
+#bMenu div img {
+    margin-right: 16px;
+}
+
+#bMenu div p {
+    color: var(--myColor);
+    font-weight: bold;
+    font-size: 16px;
+}
+
+#bMenu div a {
+    text-decoration: none;
+}
+
+.about {
+    width: 360px;
+    display: flex;
+    height: 17px;
+    margin: 4px 0 20px 35px;
+}
+
+.about p {
+    font-weight: bold;
+    font-size: 18px;
+    /* line-height: 17px; */
+    text-transform: uppercase;
+    margin-right: 19px;
+}
+
+.event{
+    font-family: var(--myfont);
+    font-style: normal;
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 17px;
+    text-transform: uppercase;
+    margin: 51px 0 21px 35px;
+}
+
+.t1 {
+    width: 692px;
+    height: 71px;
+    margin: 22px 0 5px 35px;
+}
+
+.t1 p {
+    font-size: 12px;
+    line-height: 14px;
+}
+
+.social {
+    width: 195px;
+    height: 36px;
+    margin: 5px 0 45px 34px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.msocial {
+    margin: 398px 0 32px 17px;
+}
+
+section {
+    width: 650px;
+    height: 260px;
+    margin: 34px 0 0 35px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-content: space-between;
+}
+
+section>div {
+    width: 285px;
+    height: 125px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+section a{
+    text-decoration: none;
+}
+
+.capabilities{
+    font-family: var(--myfont);
+    font-style: normal;
+    font-weight: bold;
+    font-size: 16px;
+    color: var(--myColor);
+    /* height: 26px; */
+}
+
+.feature_description{
+    font-family: var(--myfont);
+    font-style: normal;
+    font-size: 14px;
+    width: 220px;
+    height: 60px;
+    line-height: 20px;
+}
+
+section img{
+    width: 74px;
+}
+
+.news{
+    width: 670px;
+    height: 147px;
+    margin-left: 35px;
+    font-family: var(--myfont);
+    display: flex;
+}
+
+.nmain{
+    border: 2px solid var(--myColor);
+    box-sizing: border-box;
+    border-radius: 24px;
+    color: var(--myColor);
+}
+
+.news>div{
+    width: 335px;
+}
+
+.ndate{
+    font-size: 11px;
+    margin: 23px 0 12px 23px;
+}
+
+.news_heading{
+    font-weight: bold;
+    margin-left: 23px;
+    margin-bottom: 12px;
+    line-height: 15px;
+}
+
+.ncontent{
+    font-size: 14px;
+    margin-left: 23px;
+    line-height: 130%;
+}
