@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>dz5</title>
+    <style>
+        section {
+            width: 80%;
+            margin: 5px auto;
+            justify-content: center;
+        }
+
+        #galleryFoto {
+            display: flex;
+        }
+
+        #increasedFoto {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        h1 {
+            text-align: center;
+            size: 18px;
+            color: navy;
+        }
+
+        a:hover {
+            background: cyan;
+            padding: 8px;
+        }
+
+        body {
+            background: wheat;
+        }
+
+        img {
+            padding: 10px;
+            cursor: pointer;
+        }
+
+        .sm:hover {
+            transform: scale(1.2);
+        }
+
+        .anime {
+            animation-name: slideRight;
+            -webkit-animation-name: slideRight;
+
+            animation-duration: 2s;
+            -webkit-animation-duration: 2s;
+        }
+
+        .anime-out {
+            animation-name: slideLeft;
+            -webkit-animation-name: slideLeft;
+
+            animation-duration: 2s;
+            -webkit-animation-duration: 2s;
+        }
+
+        .anime:hover {
+            transition: .3s;
+            opacity: .6;
+        }
+
+        /* .anime:active {
+            animation-name: slideLeft;
+            -webkit-animation-name: slideLeft;
+
+            animation-duration: 3s;
+            -webkit-animation-duration: 3s;
+        } */
+
+        p {
+            text-indent: 25px;
+            color: darkblue;
+            size: 22px;
+        }
+
+        @keyframes slideRight {
+            0% {
+                transform: translateX(-50%);
+                opacity: 0;
+            }
+            50% {
+                transform: translateX(8%);
+            }
+            65% {
+                transform: translateX(-4%);
+            }
+            80% {
+                transform: translateX(4%);
+            }
+            100% {
+                transform: translateX(0%);
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideLeft {
+            0% {
+                transform: translateX(0%);
+            }
+            100% {
+                transform: translateX(150%);
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Исторические места Беларуси</h1>
+    <section id="galleryFoto"></section>
+    <section id="increasedFoto"></section>
+    <!-- <div class=""></div> -->
+    <script>
+        arr_gallery = [
+            { fname: 'belarus1.jpg', ws: '250px', tname: 'Несвиж', link: 'https://niasvizh.by/posetitelyam/dvortsovyy-ansambl/', description: 'Дворцово-парковый ансамбль XVI-XIX вв. в г. Несвиже расположен на северо-востоке города, в окружении прудов реки Уши. Инициатива возведения каменного замка принадлежит первому несвижскому ординату Николаю Христофору Радзивиллу «Сиротке» (1549–1616)' },
+            { fname: 'belarus2.jpg', ws: '250px', tname: 'Мирский замок', link: 'http://mirzamak.by/', description: 'Замковый комплекс «Мир» – уникальный памятник национальной культуры Беларуси. В 2000 году Мирский замок был включен в Список Всемирного культурного и природного наследия ЮНЕСКО.' },
+            { fname: 'belarus3.jpg', ws: '250px', tname: 'Полоцкий Софийский собор', link: 'https://planetabelarus.by/sights/sofiyskiy-sobor-v-polotske/', description: 'Собор Софии Премудрости Божией - один из самых ранних православных храмов в Европе и первый каменный в Беларуси, претендует на внесение в Список всемирного наследия ЮНЕСКО. Возведенный в 1044 - 1066 годах по распоряжению князя Всеслава Чародея, он олицетворял независимое и могущественное Полоцкое княжество.' },
+            { fname: 'belarus4.jpg', ws: '278px', tname: 'Брестская крепость-герой', link: 'http://www.brest-fortress.by/', description: 'Первые удары немецко-фашистских захватчиков 22 июня 1941 года приняла на себя Брестская крепость. Более месяца гарнизон крепости держал оборону в полном окружении и изоляции без обеспечения водой, пищей и боеприпасами.' },
+            { fname: 'belarus5.jpg', ws: '257px', tname: 'Троицкий костел в деревне Гервяты', link: 'https://www.holiday.by/by/skarb/376-troickij-kostel-v-derevne-gervjaty', description: 'Костел в Гервятах начинает свою историю с 1526 году. В том году епископ Ян заложил тут деревянный храм Святой Троицы в честь появления в Гервятах и окрестностях католического прихода. Через три столетия тут появился великолепный красный костел в стиле неоготики. Для его строительства был построен временный завод по производству кирпича высокого качества.' },
+        ];
+
+        let s = '';
+
+        for (i = 0; i < arr_gallery.length; i++) {
+
+            s += `<div><img class="sm" src="images/${arr_gallery[i].fname}" width="${arr_gallery[i].ws}" onclick="pressPic('${arr_gallery[i].fname}','${arr_gallery[i].description}')"><p><a href="${arr_gallery[i].link}">${arr_gallery[i].tname}</a></p></div>`;
+        }
+        galleryFoto.innerHTML = s;
+
+        function pressPic(pic, tit) {
+            increasedFoto.innerHTML = `<img class="anime" src="images/${pic}" width="700px" onclick="hideFoto(this)"><p>${tit}</p>`;
+        }
+
+        function hideFoto(element) {
+            element.classList.remove("anime");
+            element.classList.add("anime-out");
+
+            setTimeout(function() {increasedFoto.innerHTML = ''}, 1800);
+        }
+
+        g = document.getElementById('galleryFoto');
+        l = g.getElementsByTagName('a');
+        t = g.getElementsByTagName('p');
+
+        for (j = 0; j < l.length; j++) {
+            l[j].style.padding = '8px';
+            t[j].style.textAlign = 'center';
+            t[j].style.textIndent = '0px';
+            l[j].style.fontSize = '20px';
+            l[j].style.textDecoration = 'none'
+        }
+    </script>
+</body>
+
+</html>
