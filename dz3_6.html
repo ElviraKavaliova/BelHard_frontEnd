@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>dz3_6</title>
+</head>
+<body>
+    <p id="p1"></p>
+    <p id="p2"></p>
+    <script>
+        let arr = [];
+        while(true){
+            let a = prompt("Введите элемент массива:");
+            if (a == '' || a == null || isNaN(a)) break;
+            arr.push(+a);
+        }
+         let s = "Вы вели следующий массив длиной в " + arr.length + " элементов: ";
+         for (let el of arr) s += el + " ";
+         p1.innerHTML = s;
+
+        let sum = 0;
+        for (let el of arr) sum += el;
+        p2.innerHTML = `Cумма элементов массива равна: ${sum}`;
+    </script>
+</body>
+</html>
