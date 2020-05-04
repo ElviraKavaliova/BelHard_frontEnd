@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Меню через объект</title>
+    <style>
+        :root {
+            --page_color: white;
+            --border_color: red;
+            --text_color: maroon;
+            --hover_color: pink;
+            --background_color: skyblue;
+        }
+
+        ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            color: var(--text_color);
+        }
+
+        li {
+            margin: 5px;
+            padding: 15px;
+
+            background: var(--background_color);
+            border: 2px solid var(--border_color);
+            width: 10%;
+            text-align: center;
+            font: 20px monospace;
+        }
+
+        a {
+            font-size: 20px;
+            text-decoration: none;
+        }
+
+        a:hover {
+            padding: 5px;
+            background: var(--hover_color);
+        }
+
+        button {
+            padding: 10px;
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        section.items_param {
+            display: flex;
+            flex-direction: column;
+            text-align: right;
+            padding: -5px;
+        }
+
+        section.param {
+            display: flex;
+            justify-content: center;
+        }
+
+        section.value_param {
+            display: flex;
+            padding-left: 5px;
+            flex-direction: column;
+            justify-content: space-around;
+        }
+
+        span {
+            color: var(--border_color);
+            font-size: 150%;
+        }
+
+        p.text {
+            font-size: 20px;
+            text-align: justify;
+            text-indent: 25px;
+            padding-left: 15%;
+            padding-right: 15%;
+            line-height: 1.2;
+        }
+
+        img {
+            width: 500px;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1 id="h">Создать меню</h1>
+
+    <section id="settings_menu" class="param">
+        <section class="items_param">
+            <p id="items_menu1">Пункты меню: </p>
+            <p id="items_menu2">Цвет страницы: </p>
+            <p id="items_menu3">Цвет текста: </p>
+            <p id="items_menu4">Цвет фона меню: </p>
+            <p id="items_menu5">Цвет hover: </p>
+        </section>
+        <section class="value_param">
+            <input id="input_menu" type="text" size="30" placeholder="Введите пункты меню через запятую">
+            <input id="col_page" type="color" value="#E6E6FA">
+            <input id="col_text" type="color" value="#4B0082">
+            <input id="col_background" type="color" value="#9370DB">
+            <input id="col_hover" type="color" value="#6A5ACD">
+        </section>
+    </section>
+
+
+    <p style="text-align: center;"><button onclick="menu()" id="bcreate" class="creatb">Создать меню</button></p>
+
+    <h2></h2>
+    <ul id="menu1"></ul>
+    <section>
+        <div id="pic"></div>
+        <div id="p1"></div>
+    </section>
+
+    <script>
+        function menu() {
+            
+            my_menu = input_menu.value;
+            arr_menu = my_menu.split(",");
+
+            //Создание объекта с данными
+            myMeny = [
+                { pname: 'hero-demo1.jpg', ptext: '<p class="text"><span>А</span>ссоциативный массив - это массив, у которого в качестве ключей используются строки.</p><p class="text"> Представить структуру данных ассоциативного массива можно как совокупность пар «ключ-значение.</p><p class="text">В ассоциативном массиве каждое значение связано с определённым ключом. Доступ к значению осуществляется по имени ключа.</p><p class="text">Представить ассоциативный массив можно как ящичек, в котором находятся коробочки. Каждая коробочка в этом ящичке имеет имя (ключ) и содержимое (значение).</p><p class="text">Для того чтобы найти нужную коробочку в ящичке нужно знать её имя (ключ). Зная имя (ключ) коробочки можно получить её содержимое (значение).</p>' },
+                { pname: 'hero-demo2.jpg', ptext: '<p class="text"><span>Т</span>ип данных Map предназначен для создания ассоциативных массив (пар «ключ-значение»). В качестве ключа можно использовать как примитивные, так и ссылочные типы данных. Это одно из основных отличий от ассоциативных массивов как объектов, у которых в качестве ключа можно использовать только строки.</p>' },
+                { pname: 'hero-demo3.jpg', ptext: '<p class="text"><span>П</span>еребор ассоциативного массива (объекта Map) обычно осуществляется с помощью цикла for...of. При этом итерацию можно организовать по ключам, значениям и записям ([key, values]).</p><p class="text">Перебор ключей можно осуществить посредством итерируемого объекта MapIterator, возвращаемым методом keys:</p>' },
+                { pname: 'hero-demo4.jpg', ptext: '<p class="text"><span>У</span>далить из ассоциативного массива (экземпляра объекта Map) элемент по имени ключа можно с помощью метода delete</p>' },
+                { pname: 'hero-demo5.jpg', ptext: '<p class="text"><span>П</span>олучить значение по ключу выполняется с помощью метода get.</p><p class="text"> Проверить есть ли ключ в массиве можно посредством метода has:</p>' }
+            ];
+
+            let s = '';
+            let z = '';
+            let j = 0;
+
+            col_back = document.getElementById('col_background').value;
+            col_h = document.getElementById('col_hover').value;
+            for (i = 0; i < arr_menu.length; i++) {
+
+                if (j >= 5) break;
+
+                if (arr_menu[i].trim() == '') continue;
+                else j++;
+
+                s += `<li style="background: ${col_back};"><a onclick="increase('${j - 1}')" href="#href${j}" onmouseover="this.style.backgroundColor='${col_h}'" onmouseout="this.style.backgroundColor='${col_back}'">${arr_menu[i]}</a></li>`;
+            }
+            if (s == '') {
+                alert('Вы не заполнили пункты меню!');
+                exit();
+            } else {
+                menu1.innerHTML = s;
+                menu1.style.color = document.getElementById('col_text').value;
+
+                document.body.style.background = document.getElementById('col_page').value;
+
+                h.style.display = 'none';
+                bcreate.style.display = 'none';
+                settings_menu.style.display = 'none';
+            }
+        }
+
+        function increase(n) {
+            pic.innerHTML = `<img src="images/${myMeny[n].pname}">`;
+            p1.innerHTML = `${myMeny[n].ptext}`
+        }
+    </script>
+</body>
+
+</html>
